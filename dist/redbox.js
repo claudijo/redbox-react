@@ -309,7 +309,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          { style: message },
 	          error.name
 	        ),
-	        _get__('React').createElement('div', { style: stack, dangerouslySetInnerHTML: { __html: messageHtml } }),
+	        _get__('React').createElement('pre', { style: stack, dangerouslySetInnerHTML: { __html: messageHtml } }),
 	        _get__('React').createElement(
 	          'div',
 	          { style: stack },

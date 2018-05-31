@@ -6,6 +6,7 @@ import ErrorStackParser from 'error-stack-parser'
 import assign from 'object-assign'
 import {isFilenameAbsolute, makeUrl, makeLinkText} from './lib'
 import { mapStackTrace } from 'sourcemapped-stacktrace'
+import ansiHTML from 'ansi-html'
 
 export class RedBoxError extends Component {
   static propTypes = {
@@ -146,9 +147,12 @@ export class RedBoxError extends Component {
       frames = this.renderFrames(frames)
     }
 
+    const messageHtml = ansiHTML(error.message)
+
     return (
       <div style={redbox} className={className}>
-        <div style={message}>{error.name}: {error.message}</div>
+        <div style={message}>{error.name}</div>
+        <div style={stack} dangerouslySetInnerHTML={{ __html: messageHtml }}></div>
         <div style={stack}>{frames}</div>
       </div>
     )

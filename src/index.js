@@ -152,7 +152,7 @@ export class RedBoxError extends Component {
     return (
       <div style={redbox} className={className}>
         <div style={message}>{error.name}</div>
-        <div style={stack} dangerouslySetInnerHTML={{ __html: messageHtml }}></div>
+        <pre style={stack} dangerouslySetInnerHTML={{ __html: messageHtml }}></pre>
         <div style={stack}>{frames}</div>
       </div>
     )
